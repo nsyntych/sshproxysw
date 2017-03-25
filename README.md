@@ -9,7 +9,7 @@ Follow instructions below to run a SOCKS5 proxy server locally that switches tra
 
 ```bash
 # Get and install sshproxysw
-go get github.com/nsyntych/sshproxysw
+go get -u github.com/nsyntych/sshproxysw
 go install github.com/nsyntych/sshproxysw
 
 # Copy and edit the proxy TOML conf file
