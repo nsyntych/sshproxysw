@@ -5,7 +5,7 @@ An SSH Proxy SOCK5 Switch
 
 How to run
 =========
-Follow instructions below to run a SOCKS5 proxy server locally on port 8000 that switches traffic though SSH connections according to the configuration provided on startup
+Follow instructions below to run a SOCKS5 proxy server locally that switches traffic though SSH connections according to the configuration provided
 
 ```bash
 # Get and install sshproxysw
@@ -19,5 +19,5 @@ cp $GOPATH/src/github.com/nsyntych/sshproxysw/proxy.example.toml /wherever/you/w
 edit /wherever/you/want/proxy.toml
 
 # Run
-$GOPATH/bin/sshproxysw -c /wherever/you/want/proxy.toml
+$GOPATH/bin/sshproxysw -c /wherever/you/want/proxy.toml -h 127.0.0.1 -p 8000
 ```

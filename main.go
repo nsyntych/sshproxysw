@@ -157,6 +157,9 @@ func ProxySSHConnect(proxy *SSHProxy) error {
 func main() {
 
 	configfile := flag.String("c", "proxy_config.toml", "TOML Configuration file path")
+	bind_host := flag.String("h", "127.0.0.1", "The bind host of the SOCKS5 server")
+	bind_port := flag.Int("p", 8000, "The bind port of the SOCKS5 server")
+
 	flag.Parse()
 	proxyConfig := ReadConfig(*configfile)
 
@@ -195,8 +198,10 @@ func main() {
 		panic(err)
 	}
 
-	// Create SOCKS5 proxy on localhost port 8000
-	if err := server.ListenAndServe("tcp", "127.0.0.1:8000"); err != nil {
+	// Create SOCKS5 proxy on listen_address
+	listen_address := fmt.Sprintf("%s:%d", *bind_host, *bind_port)
+	println("SOCKS5 server on", listen_address)
+	if err := server.ListenAndServe("tcp", listen_address); err != nil {
 		panic(err)
 	}
 }
