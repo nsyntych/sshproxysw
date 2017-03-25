@@ -1,7 +1,12 @@
-# sshproxysw
+sshproxysw [![Build Status](https://travis-ci.org/nsyntych/sshproxysw.svg?branch=master)](https://travis-ci.org/nsyntych/sshproxysw)
+=========
 An SSH Proxy SOCK5 Switch
 
-### How to
+
+How to run
+=========
+Follow instructions below to run a SOCKS5 proxy server locally on port 8000 that switches traffic though SSH connections according to the configuration provided on startup
+
 ```bash
 # Get and install sshproxysw
 go get github.com/nsyntych/sshproxysw
