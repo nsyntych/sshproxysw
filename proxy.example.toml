@@ -1,0 +1,33 @@
+[proxies]
+
+[proxies.withkey]
+host = "some.host.net"
+port = "22"
+user = "someuser"
+key = "~/.ssh/id_rsa"
+
+[proxies.withpassword]
+host = "some.other.host.net"
+port = "22"
+user = "someuser"
+variable = "ENV_VAR_CONTAINING_THE_PASSWORD"
+
+[proxies.withparent]
+host = "some.other.other.host.net"
+port = "22"
+user = "someuser"
+variable = "ENV_VAR_CONTAINING_THE_PASSWORD"
+parent = "withkey"
+
+
+[[filters]]
+URL = ".whatsmyip.org"
+proxy = "withpassword"
+
+[[filters]]
+URL = ".google."
+proxy = "withkey"
+
+[[filters]]
+URL = ".super.secure.com"
+proxy = "withparent"
