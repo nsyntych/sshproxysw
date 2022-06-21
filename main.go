@@ -106,7 +106,8 @@ func PublicKeyFile(file string) ssh.AuthMethod {
 func ProxySSHConnect(proxy *SSHProxy) error {
 
 	sshConfig := &ssh.ClientConfig{
-		User: proxy.User,
+		User:            proxy.User,
+		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 	}
 
 	if len(proxy.Variable) > 0 {
